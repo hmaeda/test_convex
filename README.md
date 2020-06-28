@@ -20,7 +20,7 @@ Initial test context: Write an R script that does the following. Step 1 is the c
 $ Rscript test_solution.R profile=test_profile bucket=test_bucket key=test_key/file.parquet
 ```
 * The solution uses the credentials (in `~/.aws/credentials`) to sign an HTTP GET request to download the parquet file to disk which is then read into R before printing the second row as a TSV format to the standard output.
-
+* The solution assumes the parquet file is in an S3 bucket in the eu-west-1 region
 
 
 ## Pre-requisits:
@@ -30,7 +30,7 @@ $ Rscript test_solution.R profile=test_profile bucket=test_bucket key=test_key/f
 
 All of the above software are assumed to already be installed as they are standard in most EC2 instances
 
-## Installing dependencies
+## Installing dependencies:
 
 * If not already installed, git needs to be installed first to collect correct version of files
 
@@ -51,7 +51,7 @@ $ cd test_convex
 $ bash test_setup.sh
 ```
 
-## Running the solution
+## Running the solution:
 * N.B. This solution script assumes that the standard AWS credentials file already exists in `~/.aws/credentials` and the correct credentials values are already there. If this file is not there then please create it first before running the R script
 * Run the `test_solution.R` file as follows but repalcing values for: `test_profile`, `test_bucket`, `test_key/file.parquet` with your own values for your: AWS credentials profile, the relevant S3 bucket and the relevant key respectively.
 
@@ -65,6 +65,7 @@ $ Rscript test_solution.R profile=test_profile bucket=test_bucket key=test_key/f
 ```
 $ Rscript test_solution.R bucket=test_bucket key=test_key/file.parquet
 ```
+* N.B. The solution assumes the parquet file is in an S3 bucket in the eu-west-1 region
 
 ## Testing:
 This solution was tested on a pre-built AMI on AWS. The details of the AMI are as follows:
